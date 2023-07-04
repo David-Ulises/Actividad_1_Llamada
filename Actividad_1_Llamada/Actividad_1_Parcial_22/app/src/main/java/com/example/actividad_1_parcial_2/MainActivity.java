@@ -50,12 +50,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // Registra un receptor de difusión para capturar eventos de llamadas telefónicas
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.PHONE_STATE");
         registerReceiver(phoneCallReceiver, intentFilter);
 
-        // Inicializa el administrador de telefonía y establece el listener de estado de llamada
         telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         phoneStateListener = new PhoneStateListener() {
             @Override
@@ -108,5 +106,4 @@ public class MainActivity extends AppCompatActivity {
             unregisterReceiver(phoneCallReceiver);
         }
     }
-    // Para iniciar el servicio
 }
